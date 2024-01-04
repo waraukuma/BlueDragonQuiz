@@ -2,14 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#DDECFA"
+    android:background="#660091C8"
     android:orientation="vertical"
     android:layout_gravity="center">
-    <androidx.drawerlayout.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:id="@+id/drawer_layout"/>
+
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
@@ -18,7 +14,7 @@
         android:paddingTop="20dp"
         android:text="신조어 퀴즈"
         android:layout_centerHorizontal="true"
-        android:textColor="#010513"
+        android:textColor="#FF1744"
         android:textSize="40sp"
         android:typeface="sans"
         android:textStyle="italic|bold" />
@@ -41,7 +37,7 @@
         android:layout_below="@+id/dragonIntro"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="#030342"
+        android:background="#FF1744"
         android:paddingLeft="20dp"
         android:text="게임시작!"
         android:textColor="@color/white"
@@ -53,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnStart"
         android:layout_centerHorizontal="true">
+
     <ImageView
         android:adjustViewBounds="true"
         android:layout_weight="1"

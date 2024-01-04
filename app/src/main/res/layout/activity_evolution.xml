@@ -2,9 +2,11 @@
     android:id="@+id/baseLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAC4C9"
+    android:background="#C8C1C7"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <TextView
         android:layout_margin="20dp"
@@ -18,11 +20,11 @@
         android:textStyle="italic|bold"
         android:typeface="sans" />
 
-
-    <VideoView
-        android:layout_margin="40dp"
-        android:id="@+id/evolution1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <VideoView
+            android:background="@drawable/corner"
+            android:layout_margin="40dp"
+            android:id="@+id/evolution1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 </LinearLayout>
