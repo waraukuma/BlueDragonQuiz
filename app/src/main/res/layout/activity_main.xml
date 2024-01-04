@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#DDECFA"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+    <androidx.drawerlayout.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/drawer_layout"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingTop="20dp"
+        android:text="신조어 퀴즈"
+        android:layout_centerHorizontal="true"
+        android:textColor="#010513"
+        android:textSize="40sp"
+        android:typeface="sans"
+        android:textStyle="italic|bold" />
+
+    <ImageView
+        android:adjustViewBounds="true"
+        android:id="@+id/dragonIntro"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text"
+        android:src="@drawable/bluedragon2" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnStart"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/dragonIntro"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#030342"
+        android:paddingLeft="20dp"
+        android:text="게임시작!"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnStart"
+        android:layout_centerHorizontal="true">
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:id="@+id/contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/contacts"
+        android:clickable="true"
+        android:onClick="onContactsClick"
+        android:src="@drawable/contacts" />
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:id="@+id/removerads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/contacts"
+        android:clickable="true"
+        android:onClick="onContactsClick"
+        android:src="@drawable/removeads" />
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:id="@+id/ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/removerads"
+        android:clickable="true"
+        android:onClick="onContactsClick"
+        android:src="@drawable/ranking" />
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:id="@+id/dragonevolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/ranking"
+        android:clickable="true"
+        android:onClick="onContactsClick"
+        android:src="@drawable/dragonevolution" />
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/dragonevolution"
+        android:clickable="true"
+        android:onClick="onContactsClick"
+        android:src="@drawable/settings" />
+    </LinearLayout>
+</RelativeLayout>

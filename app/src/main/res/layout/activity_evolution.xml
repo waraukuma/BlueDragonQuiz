@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/baseLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAC4C9"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_margin="20dp"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="진화 1단계 성공"
+        android:textColor="#BA0945"
+        android:textSize="40sp"
+        android:textStyle="italic|bold"
+        android:typeface="sans" />
+
+
+    <VideoView
+        android:layout_margin="40dp"
+        android:id="@+id/evolution1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
