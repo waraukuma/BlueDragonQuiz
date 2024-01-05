@@ -26,9 +26,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude ("META-INF/DEPENDENCIES")
+    }
 }
 
 dependencies {
+
     implementation("com.google.api-client:google-api-client:2.2.0")
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.google.android.gms:play-services-auth:20.7.0")

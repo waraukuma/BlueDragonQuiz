@@ -109,6 +109,6 @@
         android:layout_toRightOf="@id/dragonevolution"
         android:clickable="true"
         android:onClick="onContactsClick"
-        android:src="@drawable/settings" />
+        android:src="@drawable/terms2" />
     </LinearLayout>
 </RelativeLayout>

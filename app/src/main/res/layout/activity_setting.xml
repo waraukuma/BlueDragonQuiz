@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:background="#FF1744"
         android:gravity="center"
         android:textSize="20sp"
         android:text="이용약관, 개인정보 수집 및 이용"

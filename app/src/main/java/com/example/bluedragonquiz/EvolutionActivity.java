@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -26,7 +25,7 @@ public class EvolutionActivity extends AppCompatActivity {
         MediaController controller = new MediaController(this);
         evolution1.setMediaController(controller);
         evolution1.setOnCompletionListener(completionListener);
-        evolution1.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.evol1));
+        evolution1.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.evolution1));
         evolution1.start();
     }
 
