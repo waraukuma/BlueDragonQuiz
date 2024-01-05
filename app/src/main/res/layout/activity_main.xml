@@ -74,23 +74,25 @@
         android:clickable="true"
         android:onClick="onContactsClick"
         android:src="@drawable/removeads" />
-    <ImageView
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:layout_margin="20dp"
-        android:id="@+id/ranking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/removerads"
-        android:clickable="true"
-        android:onClick="onContactsClick"
-        android:src="@drawable/ranking" />
-    <ImageView
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:layout_margin="20dp"
+
+        <ImageView
+            android:id="@+id/ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@id/removerads"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:onClick="onContactsClick"
+            android:src="@drawable/ranking" />
+
+        <ImageView
         android:id="@+id/dragonevolution"
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -109,6 +111,6 @@
         android:layout_toRightOf="@id/dragonevolution"
         android:clickable="true"
         android:onClick="onContactsClick"
-        android:src="@drawable/terms2" />
+        android:src="@drawable/terms" />
     </LinearLayout>
 </RelativeLayout>

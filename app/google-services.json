@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893522860502",
+    "project_id": "bluedragonquiz",
+    "storage_bucket": "bluedragonquiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893522860502:android:012cf3a5896c01aeb0ec77",
+        "android_client_info": {
+          "package_name": "com.example.bluedragonquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxNXU6_lRO9rTZ_Xq7I9boyoDOCQxN1Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
