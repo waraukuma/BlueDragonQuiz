@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -33,15 +34,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
- ImageView dragonIntro, dragonevolution, contacts, removeads, settings, ranking;
- AppCompatButton btnStart;
- TextView text;
+    ImageView dragonIntro, dragonevolution, contacts, removeads, settings, ranking;
+    AppCompatButton btnStart;
+    TextView text;
 
-int RC_SIGN_IN = 100;
-GoogleSignInClient googleSignInClient;
-
-
-
+    int RC_SIGN_IN = 100;
+    GoogleSignInClient googleSignInClient;
 
 
     @Override
@@ -68,7 +66,6 @@ GoogleSignInClient googleSignInClient;
         });
 
 
-
         //진화 아이콘(evolution)
         dragonevolution = findViewById(R.id.dragonevolution);
         dragonevolution.setOnClickListener(new View.OnClickListener() {
@@ -80,19 +77,17 @@ GoogleSignInClient googleSignInClient;
             }
         });
 
-        //설정> 개인정보수집 약관동의
+        //약관 설정> 개인정보수집 약관동의
         Intent intent = getIntent();
         settings = findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "설정(settings)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "약관(settings)", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
             }
         });
-
-
 
 
         // 사용자 개발자에게 이메일을 통해 연락
@@ -100,7 +95,7 @@ GoogleSignInClient googleSignInClient;
         contacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] addresses = { "waraukuma@naver.com"}; //개발자 이메일
+                String[] addresses = {"waraukuma@naver.com"}; //개발자 이메일
                 String subject = "앱에 대한 문의 또는 건의사항";
 
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -108,10 +103,9 @@ GoogleSignInClient googleSignInClient;
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, addresses);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 
-                try{
-                startActivity(Intent.createChooser(emailIntent, "이메일 보내기"));
-                }
-                catch (android.content.ActivityNotFoundException notFoundException){
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "이메일 보내기"));
+                } catch (android.content.ActivityNotFoundException notFoundException) {
                     Toast.makeText(getApplicationContext(), "이메일 전송기능을 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -139,10 +133,11 @@ GoogleSignInClient googleSignInClient;
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "순위", Toast.LENGTH_SHORT).show();
-                // 구글 계정연동 팝업
+                // 구글 계정연동 권한선택 팝업
                 googleSignInClient = GoogleSignIn.getClient(MainActivity.this,
                         new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build());
                 Intent signInIntent = googleSignInClient.getSignInIntent();
+                //startActivityForResult메서드를(팝업) RC_SIGN_IN(결과)
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
@@ -151,23 +146,42 @@ GoogleSignInClient googleSignInClient;
     @Override //ranking 구글연동값 액티비티 처리결과
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN){
+        Log.e("onActivityResult", "onActivityResult");
+        if (requestCode == RC_SIGN_IN) {
+            Log.e("RC_SIGN_IN", "RC_SIGN_IN");
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+
         }
     }
 
-    public void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+            Log.e("handleSignInResult", "handleSignInResult");
+
         try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+//            GoogleSignInAccount googleSignInAccount = completedTask.getResult(ApiException.class);
+            GoogleSignInAccount googleSignInAccount = completedTask.getResult();
+            Log.e("로그인확인", "1");
+
             // 계정 연동 성공
             Toast.makeText(this, "계정 연동 성공", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+            Intent intent = new Intent(this, RankingActivity.class);
             startActivity(intent);
-        } catch (ApiException e) {
-            // 계정 연동 실패
-            Toast.makeText(this, "계정 연동 실패", Toast.LENGTH_SHORT).show();
-            throw new RuntimeException(e);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+//            int statusCode = e.getStatusCode();
+//
+//            switch (statusCode) {
+//                // 로그인 취소
+//                case 13:
+//                    Toast.makeText(this, "로그인 취소", Toast.LENGTH_SHORT).show();
+//                    break;
+//                // 기타 오류
+//                default:
+//                    Toast.makeText(this, "계정 연동 실패", Toast.LENGTH_SHORT).show();
+//                    break;
+//            }
         }
     }
 }
